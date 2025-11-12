@@ -1,6 +1,6 @@
 import mongoose,{Schema} from "mongoose"; 
 import jwt from "jsonwebtoken"
-import bcrpyt from "bcrypt"
+import bcrypt from "bcrypt"
 
 const userSchema= new Schema(
     {
@@ -43,8 +43,7 @@ const userSchema= new Schema(
       },
       refreshToken:{
         type: String
-      }
-
+      },
 },
 {
   timestamps: true  
@@ -52,7 +51,7 @@ const userSchema= new Schema(
 )
 
 userSchema.pre("save",async function(next){
-  if(!this.modified("password")) return next();
+  if(!this.isModified("password")) return next();
 
   
   this.password= bcrpyt.hash(this.password,10)
@@ -60,7 +59,7 @@ userSchema.pre("save",async function(next){
 } )
   
 userSchema.methods.isPasswordCorrect=async function (password){
- return await  bcrpyt.compare(password,this.password )
+ return await  bcrypt.compare(password,this.password )
   
 }
 userSchema.methods.generateAccessToken= function(){
@@ -93,3 +92,57 @@ userSchema.methods.generateRefreshToken=function(){
 
 
 export const User=mongoose.model("User",userSchema)
+
+import mongooose,{Scehma}from "mongoose";
+import jwt from "jsonwebtoken"
+import bycrypt from "bycrypt"
+
+constuserSchema= newSchema(
+  {
+    username:{
+      type: String,
+      require: true,
+      unique: true,
+      lowercase: true,
+      index: true,
+      trim: true
+
+    },
+    username:{
+      type: String,
+      require: true,
+      unique: true,
+      lowercase: true,
+      index: true,
+      trim: true
+
+    },
+    email:{
+      type: String,
+      require: true,
+      unique: true,
+      lowercase: true,
+      index: true
+      
+
+    },
+    username:{
+      type: String,
+      require: true,
+      unique: true,
+      lowercase: true,
+      index: true,
+      trim: true
+
+    },
+    username:{
+      type: String,
+      require: true,
+      unique: true,
+      lowercase: true,
+      index: true,
+      trim: true
+
+    },
+  }
+)
