@@ -62,7 +62,7 @@ if (!createdUser){
     throw new ApiError(500,"somethhing went wrong while registering the user") 
 }
 return res.status(201).json(
-    newApiResponse(200,creaedUser,"User registered Successfully")
+    newApiResponse(200,createdUser,"User registered Successfully")
     )
 
 
