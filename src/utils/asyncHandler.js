@@ -5,3 +5,4 @@ export const asyncHandler = (fnc) => async (req, res, next) => {
     next(err);
   }
 };
+

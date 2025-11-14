@@ -8,7 +8,7 @@ import app from "./app.js";
 // Connect MongoDB first, then start server
 connectDB()
   .then(() => {
-    const PORT = process.env.PORT || 8000;
+    const PORT =8000;
     app.listen(PORT, () => {
       console.log(`✅ Server running on port ${PORT}`);
     });
@@ -16,3 +16,4 @@ connectDB()
   .catch((err) => {
     console.log("❌ MongoDB connection failed:", err);
   });
+   
