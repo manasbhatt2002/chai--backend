@@ -35,7 +35,7 @@ const registerUser=asyncHandler(async (req,res)=>{
 
    const{fullName,email,username,password}= req.body
    console.log("email:",email);
-   res.send("User addedd successfully")
+   res.send("User added successfully")
 if(
     [fullName,email,username,password] .some((field)=>
         field?.trim()=="")
